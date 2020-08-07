@@ -5,8 +5,6 @@ function onOpen() {
   .addToUi();
 }
 
-
-
 //----------------------Menu--------------------
 function targetCliente(){
   var clienteName = "cliente";
@@ -15,13 +13,11 @@ function targetCliente(){
   setMaterials(clienteName, clienteEmail, clienteIndex);
 }
 
-
 // ------------- Busca as todas as informações da planilha --------------------
   function getData(sheetName) {
     var data = SpreadsheetApp.getActive().getSheetByName(sheetName).getDataRange().getValues();
     return data;
   }
-  
   
 // ------------- Busca o que foi selecionado na planilha --------------------
   function getSelection(sheetName){
@@ -36,7 +32,6 @@ function targetCliente(){
     }    
     return rangeList;
   }
-  
   
 // ------------- Renderiza os Templates --------------------
   function renderTemplate(template, data) {
@@ -119,10 +114,9 @@ function targetCliente(){
       var subject = "Recebimento de Material - " + confirm.getResponseText();
         
       if (confirm.getSelectedButton() == ui.Button.OK) {  
-        MailApp.sendEmail({to: targetEmail, subject: subject, body: objectGroupEmail });                             
-      }
-      
-     sentDate(targetIndex);
+        MailApp.sendEmail({to: targetEmail, subject: subject, body: objectGroupEmail }); 
+        sentDate(targetIndex);
+      }  
   }  
 
 //---------------- Colocar data de envio ---------------  
