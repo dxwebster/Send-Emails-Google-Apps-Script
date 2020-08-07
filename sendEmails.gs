@@ -1,19 +1,17 @@
 function onOpen() {
   var ui = SpreadsheetApp.getUi();
   ui.createMenu('Enviar')
-  .addItem('Para Adri', 'targetAdri')
+  .addItem('Para Cliente', 'targetCliente')
   .addToUi();
 }
 
-
 //----------------------Menu--------------------
-function targetAdri(){
-  var kabumName = "Kabum";
-  var kabumEmail = "adrianalimafm@gmail.com";
-  var kabumIndex = 5;
-  setMaterials(kabumName, kabumEmail, kabumIndex);
+function targetCliente(){
+  var clienteName = "cliente";
+  var clienteEmail = "adrianalimafm@gmail.com";
+  var clienteIndex = 5;
+  setMaterials(clienteName, clienteEmail, clienteIndex);
 }
-
 
 
 // ------------- Busca as todas as informações da planilha --------------------
@@ -116,7 +114,7 @@ function targetAdri(){
       var alertMessage = "(Cota diária de email disponível: " + emailQuotaRemaining + ")\n\n" + objectGroupConfirm;   
 
       var confirm = ui.prompt(alertTitle, alertMessage , ui.ButtonSet.OK_CANCEL);
-      var subject = "Material ASUS - " + confirm.getResponseText();
+      var subject = "Recebimento de Material - " + confirm.getResponseText();
         
       if (confirm.getSelectedButton() == ui.Button.OK) {  
         MailApp.sendEmail({to: targetEmail, subject: subject, body: objectGroupEmail });                             
