@@ -1,0 +1,32 @@
+<select id="mySelect" onchange="myFunction()">
+  <option disabled selected>Selecione</option>
+  <option value="Kabum">Kabum</option>
+  <option value="Pichau">Pichau</option>
+  <option value="Todos">Todos</option>
+</select>
+
+<p id="btGroup"></p>
+    
+<script>
+    function myFunction() {
+      var x = document.getElementById("mySelect").value; 
+      createButton(x);
+    }
+    
+    function createButton(target){
+        document.getElementById('btGroup').innerHTML = ''  
+        
+        var bt = document.createElement('button');
+        bt.setAttribute('onclick', 'google.script.run.criarEmail(\'' + target + '\')')
+        var btValue = document.createTextNode(`Enviar para ${target}`); 
+        var btGroup = document.getElementById('btGroup');
+            
+        bt.appendChild(btValue);
+        btGroup.appendChild(bt);
+    }
+    </script>
+
+  
+
+
+
